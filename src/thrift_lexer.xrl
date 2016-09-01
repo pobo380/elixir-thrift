@@ -9,9 +9,9 @@ IDENTIFIER      = [a-zA-Z_](\.[a-zA-Z_0-9]|[a-zA-Z_0-9])*
 ST_IDENTIFIER   = [a-zA-Z-](\.[a-zA-Z_0-9-]|[a-zA-Z_0-9-])*
 SEMI            = [;]
 WHITESPACE      = [\s\t\r\n]+
-COMMENT         = //[^\n]*
-CCOMMENT        = /\\*/*([^*/]|[^*]/|\\*[^/])*\\**\\*/
-UNIXCOMMENT     = #[^\n]*
+COMMENT         = //[^\r\n]*
+CCOMMENT        = /\*/?([^/]|[^*]/)*\*/
+UNIXCOMMENT     = #[^\r\n]*
 STRING1         = '(\\\^.|\\.|[^'])*'
 STRING2         = "(\\\^.|\\.|[^"])*"
 OPEN_CURLY      = [\{]
@@ -32,7 +32,7 @@ Rules.
 {WHITESPACE}    : skip_token.
 {COMMENT}       : skip_token.
 {CCOMMENT}      : skip_token.
-{UNIXCOMMENT}   : skip_token.
+{UNIXCOMMENT}   : {token, {comment, TokenLine, TokenChars}}.
 {SEMI}          : skip_token.
 
 {ASTERISK}      : {token, {'*', TokenLine}}.

@@ -137,6 +137,7 @@ literal -> string: unwrap('$1').
 literal -> '{' literal_list '}': '$2'.
 literal -> '{' mappings '}': '$2'.
 literal -> '[' literal_list ']': '$2'.
+literal -> ident: unwrap('$1').
 
 field_sep -> '$empty': nil.
 field_sep -> ',': nil.

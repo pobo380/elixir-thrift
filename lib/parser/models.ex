@@ -433,6 +433,23 @@ end
       end
     end
 
+    defmodule Typedef do
+      @moduledoc """
+      A Thrift typedef
+      """
+
+      @type t :: %Typedef{comments: [%Comment{}], actual_type: Types.t, type_alias: atom}
+      defstruct comments: [], actual_type: nil, type_alias: nil
+
+      import Thrift.Parser.Conversions
+      alias Thrift.Parser.Models.Field
+
+      @spec new([%Comment{}, ...], Types.t, atom) :: %Typedef{}
+      def new(comments, actual_type, type_alias) do
+        %Typedef{comments: comments, actual_type: actual_type, type_alias: atomify(type_alias)}
+      end
+    end
+
     defmodule Service do
       @moduledoc """
       A Thrift service
@@ -462,7 +479,7 @@ end
       """
 
       @type header :: %Include{} | %Namespace{}
-      @type typedef :: {:typedef, Types.t, atom, %Comment{}}
+      @type typedef :: %Typedef{}
       @type definition :: %Service{} | %TEnum{} | %Exception{} | %Union{} | %Struct{} | %Constant{} | typedef
       @type model :: header | definition
       @type t :: %Schema{
@@ -475,7 +492,7 @@ end
         includes: [%Include{}],
         constants: %{String.t => Literals.t},
         exceptions: %{String.t => %Exception{}},
-        typedefs: %{String.t => Types.t}
+        typedefs: %{String.t => %Typedef{}}
       }
       defstruct thrift_namespace: nil,
       namespaces: %{},
@@ -545,8 +562,8 @@ end
         %Schema{schema | services: Map.put(schema.services, service.name, service)}
       end
 
-      defp merge(schema, {:typedef, actual_type, type_alias}) do
-        %Schema{schema | typedefs: Map.put(schema.typedefs, atomify(type_alias), actual_type)}
+      defp merge(schema, %Typedef{} = typedef) do
+        %Schema{schema | typedefs: Map.put(schema.typedefs, typedef.type_alias, typedef)}
       end
     end
 

@@ -442,7 +442,6 @@ end
       defstruct comments: [], actual_type: nil, type_alias: nil
 
       import Thrift.Parser.Conversions
-      alias Thrift.Parser.Models.Field
 
       @spec new([%Comment{}, ...], Types.t, atom) :: %Typedef{}
       def new(comments, actual_type, type_alias) do

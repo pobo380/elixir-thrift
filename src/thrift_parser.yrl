@@ -174,7 +174,7 @@ field_default -> '=' literal: '$2'.
 
 typedef_def ->
     comments typedef type ident:
-        {typedef, '$3', unwrap('$4'), '$1'}.
+        'Elixir.Thrift.Parser.Models.Typedef':new('$1', '$3', unwrap('$4')).
 
 struct_def ->
     comments struct ident '{' fields '}':

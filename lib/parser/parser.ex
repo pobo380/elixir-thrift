@@ -3,7 +3,7 @@ defmodule Thrift.Parser do
   This module provides functions for parsing `.thrift` files.
   """
 
-  @type path_element :: String.t | atom
+  @type path_element :: String.t() | atom
 
   alias Thrift.Parser.Models
   alias Thrift.Parser.Models.Schema
@@ -11,7 +11,7 @@ defmodule Thrift.Parser do
   @doc """
   Parses a Thrift document and returns the schema that it represents.
   """
-  @spec parse(String.t) :: %Schema{}
+  @spec parse(String.t()) :: %Schema{}
   def parse(doc) do
     doc = String.to_char_list(doc)
 
@@ -34,14 +34,15 @@ defmodule Thrift.Parser do
 
   Will return the "MyService" service.
   """
-  @spec parse(String.t, [path_element]) :: Models.all
+  @spec parse(String.t(), [path_element]) :: Models.all()
   def parse(doc, path) do
     schema = parse(doc)
 
     Enum.reduce(path, schema, fn
-      (_part, nil) ->
+      _part, nil ->
         nil
-      (part, %{} = next) ->
+
+      part, %{} = next ->
         Map.get(next, part)
     end)
   end

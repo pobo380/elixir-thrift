@@ -42,6 +42,10 @@ u32
 u64
 string
 binary
+vector2
+vector3
+vector4
+color
 list
 map
 set
@@ -103,6 +107,10 @@ base_type -> float: float.
 base_type -> double: double.
 base_type -> string: string.
 base_type -> binary: binary.
+base_type -> vector2: vector2.
+base_type -> vector3: vector3.
+base_type -> vector4: vector4.
+base_type -> color: color.
 
 set_type -> set '<' type '>': '$3'.
 map_type -> map '<' type ',' type '>': {'$3', '$5'}.

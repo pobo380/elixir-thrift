@@ -21,6 +21,10 @@ defmodule Thrift.Parser.Types do
             | :double
             | :byte
             | :string
+            | :vector2
+            | :vector3
+            | :vector4
+            | :color
   end
 
   defmodule Ident do

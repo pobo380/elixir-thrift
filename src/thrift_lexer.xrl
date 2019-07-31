@@ -61,6 +61,7 @@ u8              : {token, {u8, TokenLine}}.
 u16             : {token, {u16, TokenLine}}.
 u32             : {token, {u32, TokenLine}}.
 u64             : {token, {u64, TokenLine}}.
+float           : {token, {float, TokenLine}}.
 double          : {token, {double, TokenLine}}.
 string          : {token, {string, TokenLine}}.
 binary          : {token, {binary, TokenLine}}.

@@ -17,6 +17,7 @@ defmodule Thrift.Parser.Types do
             | :u32
             | :u64
             | :binary
+            | :float
             | :double
             | :byte
             | :string

@@ -27,6 +27,7 @@ namespace
 include
 ident
 int
+float
 double
 const
 bool
@@ -98,6 +99,7 @@ base_type -> u8: u8.
 base_type -> u16: u16.
 base_type -> u32: u32.
 base_type -> u64: u64.
+base_type -> float: float.
 base_type -> double: double.
 base_type -> string: string.
 base_type -> binary: binary.

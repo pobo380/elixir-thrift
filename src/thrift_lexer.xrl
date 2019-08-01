@@ -68,6 +68,7 @@ binary          : {token, {binary, TokenLine}}.
 vector2         : {token, {vector2, TokenLine}}.
 vector3         : {token, {vector3, TokenLine}}.
 vector4         : {token, {vector4, TokenLine}}.
+quaternion      : {token, {quaternion, TokenLine}}.
 color           : {token, {color, TokenLine}}.
 
 list            : {token, {list, TokenLine}}.

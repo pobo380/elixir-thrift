@@ -24,6 +24,7 @@ defmodule Thrift.Parser.Types do
             | :vector2
             | :vector3
             | :vector4
+            | :quaternion
             | :color
   end
 

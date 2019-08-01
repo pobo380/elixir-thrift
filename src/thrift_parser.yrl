@@ -45,6 +45,7 @@ binary
 vector2
 vector3
 vector4
+quaternion
 color
 list
 map
@@ -111,6 +112,7 @@ base_type -> vector2: vector2.
 base_type -> vector3: vector3.
 base_type -> vector4: vector4.
 base_type -> color: color.
+base_type -> quaternion: quaternion.
 
 set_type -> set '<' type '>': '$3'.
 map_type -> map '<' type ',' type '>': {'$3', '$5'}.

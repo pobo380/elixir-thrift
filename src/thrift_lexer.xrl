@@ -65,6 +65,7 @@ float           : {token, {float, TokenLine}}.
 double          : {token, {double, TokenLine}}.
 string          : {token, {string, TokenLine}}.
 binary          : {token, {binary, TokenLine}}.
+timestamp       : {token, {timestamp, TokenLine}}.
 vector2         : {token, {vector2, TokenLine}}.
 vector3         : {token, {vector3, TokenLine}}.
 vector4         : {token, {vector4, TokenLine}}.

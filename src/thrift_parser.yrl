@@ -42,6 +42,7 @@ u32
 u64
 string
 binary
+timestamp
 vector2
 vector3
 vector4
@@ -108,6 +109,7 @@ base_type -> float: float.
 base_type -> double: double.
 base_type -> string: string.
 base_type -> binary: binary.
+base_type -> timestamp: timestamp.
 base_type -> vector2: vector2.
 base_type -> vector3: vector3.
 base_type -> vector4: vector4.

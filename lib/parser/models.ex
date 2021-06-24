@@ -21,6 +21,7 @@ defmodule Thrift.Parser.Types do
             | :double
             | :byte
             | :string
+            | :timestamp
             | :vector2
             | :vector3
             | :vector4
